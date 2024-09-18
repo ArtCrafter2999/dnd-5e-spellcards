@@ -1,0 +1,1 @@
+type SearchParams<T> = {searchParams: Partial<T>}
