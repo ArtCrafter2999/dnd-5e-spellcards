@@ -4,12 +4,11 @@ import Table from "@/Table/Table";
 import { Spell, spells } from "@/Spells/Spells";
 import TableRow from "@/Table/TableRow";
 import { FaFilter, FaPrint } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 import { allVariations, Variations } from "@/Filter/Variations";
 import Filter from "@/Filter/Filter";
 import cn from "classnames";
 
-const Page = (uriComponent: string | number | boolean) => {
+const Page = () => {
     const [selectedSpells, setSelectedSpells] = useState<{[i: number]: number }>({ });
     const [filter, setFilter] = useState<Variations>(allVariations);
     const [search, setSearch] = useState<string>("");
@@ -28,8 +27,6 @@ const Page = (uriComponent: string | number | boolean) => {
     }
 
     const filteredSpells = spells.filter(filterSpells);
-
-    const router = useRouter();
 
     function modifyOne(copy: {[i: number]:number}, index: number,  modifier: number) {
         if((copy[index] ?? 0) + modifier >= 0)
@@ -58,7 +55,6 @@ const Page = (uriComponent: string | number | boolean) => {
 
     function handlePrint() {
         window.open('/print?spells='+ encodeURIComponent(JSON.stringify(selectedSpells)), '_blank');
-        // router.push("/print?spells=" + encodeURIComponent(JSON.stringify(selectedSpells)))
     }
 
     return (
