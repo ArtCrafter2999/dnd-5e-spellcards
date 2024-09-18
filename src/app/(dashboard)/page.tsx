@@ -59,9 +59,9 @@ const Page = () => {
 
     return (
         <div className="md:flex select-none">
-            <div className="md:w-64">
+            <div className="w-64 md:basis-1/4">
                 <section className={cn(
-                    "md:w-64 md:h-screen md:fixed md:block",
+                    "md:w-1/4 md:min-w-48 md:h-screen md:fixed md:block",
                     isFilterOpen || "hidden"
                 )}>
                     <Filter filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} />
